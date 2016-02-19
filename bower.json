@@ -1,0 +1,37 @@
+{
+  "name": "client",
+  "private": true,
+  "dependencies": {
+    "modernizr": "~2.8.1",
+    "semantic-ui": "~2.1.6",
+    "jquery": "~2.1.4"
+  },
+  "overrides": {
+    "jquery": {
+      "main": [
+        "jquery-2.1.4/dist/jquery.min.js"
+      ]
+    },
+    "semantic-ui": {
+      "main": [
+        "Semantic-UI-2.1.6/dist/semantic.min.css",
+        "Semantic-UI-2.1.6/dist/semantic.min.js"
+      ]
+    },
+    "draggabilly": {
+      "main": [
+        "dist/draggabilly.pkgd.min.js"
+      ]
+    },
+    "starrr": {
+      "main": [
+        "starrr.min.css",
+        "starrr.min.js"
+      ]
+    }
+  },
+  "devDependencies": {
+    "chai": "~3.4.2",
+    "mocha": "~2.3.4"
+  }
+}

@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js" lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>client</title>
+
+  <!-- build:css styles/vendor.css -->
+  <!-- bower:css -->
+  <link rel="stylesheet" href="/bower_components/semantic-ui/Semantic-UI-2.1.6/dist/semantic.min.css" />
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:css styles/main.css -->
+  <link rel="stylesheet" href="styles/main.css">
+  <!-- endbuild -->
+</head>
+<body>
+  <div class="admin-container">
+
+    <!-- left-content -->
+    <div class="left-content">
+
+      <!-- black panel -->
+      <div class="black-panel">
+        <div class="black-main">
+          <div class="black-material"></div>
+          <canvas class="black-canvas"></canvas>
+        </div>
+      </div>
+      <!-- end black panel -->
+    </div>
+    <!-- end left-content -->
+
+    <!-- right all content -->
+    <div class="right-content">
+    <!-- left content -->
+      <div class="right-content-left">
+        <div class="video-avatar">
+          <div class="video-main"></div>
+        </div>
+
+        <div class="video-avatar">
+          <div class="video-main"></div>
+        </div>
+      
+        <!-- table -->
+        <table class="info-table">
+          <tbody>
+              <tr>
+                <td>角色</td>
+                <td>教师</td>
+                <td>学生</td>       
+              </tr>
+              <tr>
+                <td>CPU</td>
+                <td>20%</td>
+                <td>30%</td>
+              </tr>
+              <tr>
+                <td>内存</td>
+                <td>20%</td>
+                <td>30%</td>
+              </tr>
+              <tr>
+                <td>网速</td>
+                <td>500 kb/s</td>
+                <td>300 kb/s</td>
+              </tr>
+              <tr>
+                <td>其他</td>
+                <td></td>
+                <td></td>
+              </tr>
+          </tbody>
+        </table>
+        <!-- end table -->
+      </div>
+      <!-- end left content -->
+
+      <!-- right content -->
+      <div class="right-content-right">
+        <div class="chat-switch">
+          <div class="chat-list">
+            <h4 class="chat-title chat-title-student active">Teacher &amp; student Chat</h4>
+            <div class="chat-content">
+              <ul>
+                <li class="chat-left">
+                  <div class="chat-avatar"><img src="images/avatar.png"></div>
+                  <div class="chat-pop">
+                    <p>Hi!</p>
+                  </div>
+                </li>
+                <li class="chat-right">
+                  <div class="chat-avatar"><img src="images/avatar.png"></div>
+                  <div class="chat-pop">
+                    <p>Hello!</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <h4 class="chat-title chat-title-admin">Teacher</h4>
+            <div class="chat-content"></div>
+          </div>
+        </div>
+
+        <div class="chat-box" contenteditable data-placeholder="按Enter键发送，按Ctrl+Enter换行"></div>
+      </div>
+      <!-- end right content -->
+    </div>
+    <!-- end right all content -->
+
+  </div>
+
+  <!-- build:js scripts/vendor.js -->
+  <!-- bower:js -->
+  <script src="/bower_components/jquery/jquery-2.1.4/dist/jquery.min.js"></script>
+  <script src="/bower_components/semantic-ui/Semantic-UI-2.1.6/dist/semantic.min.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- build:js scripts/plugins.js -->
+  <script src="/bower_components/draggabilly/dist/draggabilly.pkgd.min.js"></script>
+  <script src="/bower_components/starrr/starrr.min.js"></script>
+  <!-- endbuild -->
+
+  <!-- build:js scripts/main.js -->
+  <script src="scripts/main.js"></script>
+  <!-- endbuild -->
+</body>
+</html>

@@ -1,0 +1,691 @@
+$icon-font-path: '../fonts/';
+// bower:
+// endbower
+
+@import "compass";
+
+body {
+  font-family: "Microsoft Yahei UI Light","Microsoft Yahei",Verdana,Simsun,"Segoe UI Light","Segoe UI Web Light","Segoe UI Web Regular","Segoe UI","Segoe UI Symbol","HelveticaNeue-Light","Helvetica Neue",Arial,sans-serif
+}
+
+// reset
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+// variable
+$color: rgba(255,255,255,.9);
+$border: 1px solid #CCC;
+$filter: rgba(255,255,255,.3);
+$bg: rgba(56,56,56,.95);
+$bg-dark: rgba(0,0,0,.15);
+$bg-white: rgba(255,255,255,.4);
+$bg-filter: rgba(0,0,0,.5);
+$bg-filter-active: rgba(0,0,0,.3);
+
+/* button slide */
+@mixin slide-button($pos) {
+  position: absolute;
+  #{$pos}: 0;
+  z-index: 9;
+  width: 100%;
+  height: 30px;
+  left: 0;
+  margin-#{$pos}: -1px;
+  transition: $pos 0.2s ease;
+
+  i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 14px;
+    margin-top: -9px;
+    margin-left: -10px;
+    margin-right: 0;
+    font-size: 2em;
+    color: $color;
+  }
+}
+/* button transition */
+@mixin transition($pos) {
+  transition: $pos 0.6s ease;
+}
+
+
+// container
+.container {
+  @include clearfix;
+  position: relative;
+  width: 100%;
+  background-position: top center;
+  background-size: cover;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: $filter;
+  }
+}
+
+// admin container
+.admin-container {
+  @extend .container;
+
+  .left-content {
+    width: 100% * 3/5;
+    height: 100%;
+  }
+
+  .right-content {
+    @include clearfix;
+    width: 100% * 2/5;
+    height: 100%;
+    $border: 1px solid rgba(0,0,0,.1);
+
+    .right-content-left {
+      width: 50%;
+      height: 100%;
+      float: left;
+
+      .video-avatar {
+        width: 100%;
+        height: 100% * 1/3;
+        border-bottom: $border;
+        border-right: $border;
+      }
+
+      .info-table {
+        @extend .video-avatar;
+        text-align: center;
+        color: $color;
+        background-color: rgba(100,100,100,.8);
+        border-bottom: none;
+        table-layout: fixed;
+
+        tr {
+
+          &:first-of-type {
+            background-color: rgba(80,80,80,.8);
+          }
+
+          td {
+            font-weight: 500;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+          }
+        }
+      }
+    }
+
+    .right-content-right {
+      width: 50%;
+      height: 100%;
+      float: left;
+
+      .chat-switch {
+        height: calc(100% - 80px);
+      }
+    }
+  }
+}
+
+// left content
+.left-content {
+  position: relative;
+  z-index: 0;
+  width: 100% * 3/4;
+  height: 100%;
+  float: left;
+  overflow: hidden;
+
+  .top-line {
+    @include clearfix;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    color: $color;
+
+    .material-name {
+      margin-top: 0;    
+      margin-right: 40px;
+      float: right;
+      line-height: 30px;
+    }
+  }
+
+  .top-panel {
+    @include clearfix;
+    @include transition(top);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    width: 100%;
+    font-size: .9em;
+    background-color: $bg;
+    overflow: visible;
+
+    .top-panel-box {
+      $line-height: 2.4em;
+      width: 100% * 1/3;
+      height: 100%;
+      float: left;
+      overflow-x: hidden;
+      overflow-y: auto;
+
+      &:nth-of-type(2) {
+        background-color: $bg-dark;
+      }
+
+      .material-list {
+        width: 100%;
+
+        li {
+          line-height: $line-height;
+          cursor: pointer;
+          transition: background-color 0.2s ease;
+
+          &:nth-of-type(2n+1) {
+            background-color: $bg-dark;
+          }
+
+          &:hover {
+            background-color: $bg-filter-active;
+            color: rgba(0,0,0,.95);
+          }
+
+          a {
+            width: 100%;
+            color: $color;
+            display: block;
+            padding: 0 1em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+
+      .switch-list {
+        width: 100%;
+
+        li {
+          @include clearfix;
+          color: $color;
+          line-height: $line-height;
+          padding: 0 1em;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          .ui.toggle.checkbox {
+            top: 5px;
+            float: right;
+
+            input~label:before {
+              background-color: rgba(95,95,95,0.5);
+            }
+
+            input:checked~label:before {
+              background-color: rgba(255, 255, 255, 0.5) !important;
+            }
+          }
+        }
+      }
+
+      .other-extension {
+        display: none;
+        padding: 0 1em;
+
+        .starrr {
+          line-height: 2.4em;
+        }
+      }
+    }
+  }
+
+  .top-slide-button {
+    @include slide-button(top);
+  }
+
+  .black-panel {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+
+    .black-main {
+      position: relative;
+      width: 100%;
+      background-color: #FFF;
+
+      .black-material {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+      }
+
+      .black-canvas {
+        @extend .black-material;
+        z-index: 8;
+      }
+    } 
+
+    .aside-panel {
+      position: absolute;
+      z-index: 0;
+      top: 0;
+      left: -40px;
+      bottom: 16px;
+      width: 40px;
+      height: 100%;
+      transition: left 0.2s ease;
+
+      ul {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        height: 240px;
+        margin-top: -120px;
+        text-align: center;
+        background-color: $bg;
+
+        li {
+          margin-top: .5em;
+          text-align: center;
+          font-size: 1.6em;
+          color: $color;
+          transition: color 0.2s ease;
+
+          &:hover {
+            color: black;
+          }
+
+          @for $i from 1 through 4 {
+            &:nth-of-type(#{$i}) {
+              font-size: .4em + $i * .4em;
+            }
+          }
+
+          i {
+            margin-right: 0;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+
+  .aside-slide-button {
+    @include slide-button(left);
+    width: 40px;
+    height: 100%;
+    margin-top: -15px;
+  }
+
+  .bottom-panel {
+    @include transition(bottom);
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: $bg-filter;
+    -webkit-user-select: none;
+
+    .material-list {
+      @include clearfix;
+      height: 100%;
+      display: flex;
+      align-items: center;
+
+      .pre {
+        position: relative;
+        width: calc(5% - 8px);
+        height: calc(100% - 8px);
+        margin: 4px;
+        float: left;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        color: $color;
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background-color: $bg-filter-active;
+        }
+
+        i {
+          margin: 0;
+          font-size: 2em;
+          line-height: 100%;
+        }
+      }
+
+      .next {
+        @extend .pre;
+      }
+
+      .wraper {
+        width: 90%;
+        white-space: nowrap;
+        overflow: hidden;
+        font-size: 0px;
+
+        .box {
+          position: relative;
+          left: 0;
+          width: calc(25% - 1px);
+          margin-right: 1px;
+          display: inline-block;
+          cursor: pointer;
+          overflow: hidden;
+
+          &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,.2);
+            transition: all 0.2s ease;
+          }
+
+          &:hover:after {
+            background-color: rgba(0,0,0,0);
+          }
+
+          img {
+            width: 100%;
+            height: 100%;
+          }
+
+          aside {
+            position: absolute;
+            z-index: 1;
+            left: -100%;
+            top: 10%;
+            width: 50%;
+            height: 30px;
+            color: $color;
+            line-height: 30px;
+            font-size: 14px;
+            text-align: center;
+            background-color: rgba(0,0,0,0.8);
+          }
+
+          span {
+            @extend aside;
+            left: auto;
+            top: auto;
+            right: 0;
+            bottom: 10%;
+            width: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  .bottom-slide-button {
+    @include slide-button(bottom);
+  }
+
+  .bottom-line {
+    position: absolute;
+    z-index: 9;
+    bottom: 0;
+    right: 0;
+    height: 30px;
+    margin-right: 40px;
+    line-height: 30px;
+    cursor: default;
+  }
+}
+
+// right content
+.right-content {
+  position: relative;
+  width: 100% * 1/4;
+  height: 100%;
+  float: left;
+
+  .video-avatar {
+    position: relative;
+    height: 100% * 1/3;
+
+    .video-main {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('../images/camera.png') 50% 50% / cover no-repeat;
+      background-size: 24% 32%;
+      background-color: $bg-white;
+    }
+
+    .video-minor {
+      @extend .video-main;
+      width: 30%;
+      height: 30%;
+      background-size: 30% 40%;
+      background-color: $bg-dark;
+    }
+  }
+
+  .chat-switch {
+    position: relative;
+    height: calc(100% * 2/3 - 80px);
+    overflow: hidden;
+
+    .chat-list {
+      height: 100%;
+
+      .device-control {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        line-height: 36px;
+        text-align: center;
+        font-size: .9em;
+        color: $color;
+        -webkit-user-select: none;
+
+        & > li {
+          position: relative;
+          display: inline-block;
+          width: 100%;
+          cursor: pointer;
+          background-color: rgba(80,80,80,.8);
+          transition: background-color 0.2s ease;
+
+          &:nth-of-type(2n) {
+            background-color: rgba(100,100,100,.8);
+          }
+
+          &:hover {
+            background-color: rgba(60,60,60,.8);
+          }
+        }
+
+        [class$='-item'] {
+          display: none;
+          position: absolute;
+          z-index: 9;
+          top: 100%;
+          right: 0;
+          width: 100%;
+          -webkit-user-select: none;
+
+          li {
+            transition: background-color 0.2s ease;
+            background-color: rgba(100,100,100,.9);
+
+            &:nth-of-type(2n) {
+              background-color: rgba(90,90,90,.9);
+            }
+
+            &:hover {
+              background-color: rgba(60,60,60,.9);
+            }
+          }
+        }
+      }
+
+      .chat-title {
+        color: $color;
+        padding: 0 1em;
+        margin: 0;
+        line-height: 36px;
+        cursor: pointer;
+        background-color: rgba(100,100,100,.8);
+        transition: background-color 0.3s ease;
+        -webkit-user-select: none;
+
+        &.active {
+          background-color: rgba(80,80,80,.8);
+        } 
+
+        &:hover {
+          background-color: rgba(60,60,60,.8);
+        }
+      }
+
+      .chat-content {
+        height: calc(100% - 72px);
+        padding: 10px 0;
+        overflow: auto;
+        background-color: $bg-white;
+
+        &.chat-content-student {
+          height: calc(100% - 36px);
+        }
+
+        .chat-left {
+          @include clearfix;
+          margin-bottom: 10px;
+
+          .chat-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            float: left;
+
+            img {
+              width: 100%;
+            }
+          }
+
+          .chat-pop {
+            max-width: calc(100% - 50px);
+            margin-top: 2px;
+            float: left;
+
+            p {
+                position: relative;
+                margin: 0 10px;
+                padding: 8px;
+                border: $border;
+                border-radius: 5px;
+                background-color: #FFF;
+
+              &:before {
+                position: absolute;
+                left: -5px;
+                top: 12px;
+                content: '';
+                width: .75em;
+                height: .75em;
+                background: #FFF;
+                transform: rotate(135deg);
+                z-index: 0;
+                box-shadow: 1px 1px 0 0 #bababc;
+              }
+            }
+          }
+        }
+
+        .chat-right {
+          @extend .chat-left;
+
+          .chat-avatar {
+            float: right;
+          }
+
+          .chat-pop {
+            float: right;
+
+            p:before {
+              left: inherit;
+              right: -5px;
+              transform: rotate(-45deg);
+            }
+          }
+        }
+      }
+    }    
+  }
+
+  .chat-box {
+    width: 100%;
+    height: 80px;
+    outline: none;
+    padding: .4em .6em;
+    overflow: auto;
+    color: $color;
+    background-color: rgba(50,50,50,.8);
+    transition: background-color 0.2s ease;
+
+    &:focus {
+      color: #FFF;
+      background-color: rgba(30,30,30,.8);
+    }
+
+    &:empty:before {
+      content: attr(data-placeholder);
+      color: #DDD;
+      font-size: .9em;
+    }
+  }
+}
+
+// star
+.starrr {
+  display: inline-block;
+
+  i {
+    width: 24px;
+    height: 100%;
+    margin-right: 0;
+    font-size: 1.4em;
+    color: $color;
+    cursor: pointer;
+
+    &:before {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
