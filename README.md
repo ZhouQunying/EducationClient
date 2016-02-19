@@ -1,2 +1,2 @@
-# education client
+# education-client
 This is education client.
