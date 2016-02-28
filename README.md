@@ -1,5 +1,5 @@
 # Responsive Education-client
-This is a responsive education client.
+  This is a responsive education client.
 > Using gulp for automate workflow, Sass grade CSS extension
 
 ## Usage
