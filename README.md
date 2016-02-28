@@ -1,8 +1,8 @@
 # Responsive Education-client
 This is a responsive education client.
->Using gulp for automate workflow, Sass grade CSS extension
+> Using gulp for automate workflow, Sass grade CSS extension
 
-##Usage
+## Usage
 install `bower`:
 ```javascript
 npm install -g bower
