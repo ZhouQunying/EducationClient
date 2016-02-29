@@ -8,7 +8,7 @@
 
   <!-- build:css styles/vendor.css -->
   <!-- bower:css -->
-  <link rel="stylesheet" href="/bower_components/semantic-ui/Semantic-UI-2.1.6/dist/semantic.min.css" />
+  <link rel="stylesheet" href="/bower_components/semantic-ui/dist/semantic.css">
   <!-- endbower -->
   <!-- endbuild -->
 
@@ -137,6 +137,18 @@
                   <p>Hello!</p>
                 </div>
               </li>
+              <li class="chat-right">
+                <div class="chat-avatar"><img src="images/avatar.png"></div>
+                <div class="chat-pop">
+                  <p> My name is Frank, and it's good to see you! How are you today?</p>
+                </div>
+              </li>
+              <li class="chat-left">
+                <div class="chat-avatar"><img src="images/avatar.png"></div>
+                <div class="chat-pop">
+                  <p>Fine, thanks.</p>
+                </div>
+              </li>
             </ul>
           </div>
           <h4 class="chat-title chat-title-admin">Admin</h4>
@@ -152,14 +164,19 @@
 
   <!-- build:js scripts/vendor.js -->
   <!-- bower:js -->
-  <script src="/bower_components/jquery/jquery-2.1.4/dist/jquery.min.js"></script>
-  <script src="/bower_components/semantic-ui/Semantic-UI-2.1.6/dist/semantic.min.js"></script>
+  <script src="/bower_components/jquery/dist/jquery.js"></script>
+  <script src="/bower_components/semantic-ui/dist/semantic.js"></script>
+  <script src="/bower_components/modernizr/modernizr.js"></script>
+  <script src="/bower_components/get-size/get-size.js"></script>
+  <script src="/bower_components/ev-emitter/ev-emitter.js"></script>
+  <script src="/bower_components/unipointer/unipointer.js"></script>
+  <script src="/bower_components/unidragger/unidragger.js"></script>
   <!-- endbower -->
   <!-- endbuild -->
 
   <!-- build:js scripts/plugins.js -->
   <script src="/bower_components/draggabilly/dist/draggabilly.pkgd.min.js"></script>
-  <script src="/bower_components/starrr/starrr.min.js"></script>
+  <script src="/bower_components/starrr/dist/starrr.js"></script>
   <!-- endbuild -->
 
   <!-- build:js scripts/main.js -->

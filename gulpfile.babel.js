@@ -17,8 +17,7 @@ gulp.task('styles', () => {
     .pipe($.compass({
       // config_file: './config.rb',
       // project: __dirname,
-      // css: '.tmp/styles',
-      css: '../webvc/public/vc/styles/',
+      css: '.tmp/styles',
       sass: 'app/styles',
     }).on('error', function(error) {
       console.log(error);

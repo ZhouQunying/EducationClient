@@ -4,7 +4,9 @@
   "dependencies": {
     "modernizr": "~2.8.1",
     "semantic-ui": "~2.1.6",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "draggabilly": "~2.1.0",
+    "starrr": "~1.0.0"
   },
   "overrides": {
     "jquery": {
