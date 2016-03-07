@@ -1,6 +1,6 @@
 // "use strict";
 
-$(function () {
+(function ($) {
 
   // background
   var bgNum = getRandombg(1, 6);
@@ -19,15 +19,15 @@ $(function () {
     ['.wraper', 3/16],
     ['.box', 3/4]
   ];
-  var $topPanel = $('.top-panel');
-  var $asidePanel = $('.aside-panel');
-  var $bottomPanel = $('.bottom-panel');
-  var $topBtn = $('.top-slide-button');
-  var $asideBtn = $('.aside-slide-button');
-  var $bottomBtn = $('.bottom-slide-button');
-  var $videoMinor = $('.video-minor');
-  var topPanelHeight;
-  var bottomPanelHeight;
+  var $topPanel = $('.top-panel'),
+      $asidePanel = $('.aside-panel'),
+      $bottomPanel = $('.bottom-panel'),
+      $topBtn = $('.top-slide-button'),
+      $asideBtn = $('.aside-slide-button'),
+      $bottomBtn = $('.bottom-slide-button'),
+      $videoMinor = $('.video-minor'),
+      topPanelHeight,
+      bottomPanelHeight;
 
   // resize
   var resizeFunc = function () {
@@ -94,14 +94,14 @@ $(function () {
   }
 
   // material preview
-  var $box = $('.box');
-  var $pre = $('.pre');
-  var $next = $('.next');
-  var animation = 800;
-  var lenInt = parseInt($box.length / 4);
-  var lenExcess = $box.length % 4;
-  var lenCurr = 1;
-  var left = 0;
+  var $box = $('.box'),
+      $pre = $('.pre'),
+      $next = $('.next'),
+      animation = 800,
+      lenInt = parseInt($box.length / 4),
+      lenExcess = $box.length % 4,
+      lenCurr = 1,
+      left = 0;
   for(var i = 0; i < $box.length; i++) {
     var spanHtml = '<span>' + (i + 1) + '</span>';
     $($box[i]).append(spanHtml);
@@ -182,4 +182,4 @@ $(function () {
 
   // other
   $('.ui.checkbox').checkbox();
-})
+})(jQuery);
